@@ -1,0 +1,14 @@
+{
+  "name": "arcticjs-test-app",
+  "version": "1.0.0",
+  "description": "ArcticJS test app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bluenoah1991",
+  "license": "ISC",
+  "dependencies": {
+    "@openarctic/arcticjs": "^0.1.2"
+  }
+}
