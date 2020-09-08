@@ -2,12 +2,12 @@ var arctic = require('@openarctic/arcticjs');
 
 // test
 
+setInterval(function () {}, 0);
+
 (async () => {
     try {
-        var agent = arctic.create_host_agent(1, [
-            {"routing_id": 2, "cmdline": "path/to/x"},
-        ]);
-        
+        var agent = arctic.create_client_agent(3);
+
         var myinstance = {};
         myinstance.foo = "bar";
         myinstance.func = function (addon_value) {
@@ -16,6 +16,11 @@ var arctic = require('@openarctic/arcticjs');
         }
 
         agent.export("myinstance", myinstance);
+        var res = agent.start();
+        console.log("res = " + res);
+        if (res != 0) {
+            return;
+        }
 
         var instance = await agent.find(1, "myinstance");
         console.log("myinstance.foo = " + await instance.getProperty("foo"));
@@ -39,5 +44,3 @@ var arctic = require('@openarctic/arcticjs');
         console.log(e);
     }
 })();
-
-setInterval(function () {}, 0);
