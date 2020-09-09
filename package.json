@@ -9,6 +9,6 @@
   "author": "bluenoah1991",
   "license": "ISC",
   "dependencies": {
-    "@openarctic/arcticjs": "^0.1.2"
+    "@openarctic/arcticjs": "^0.1.3"
   }
 }

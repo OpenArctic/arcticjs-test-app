@@ -2,11 +2,11 @@ var arctic = require('@openarctic/arcticjs');
 
 // test
 
-setInterval(function () {}, 0);
+setInterval(function () { }, 0);
 
 (async () => {
     try {
-        var agent = arctic.create_client_agent(3);
+        var agent = arctic.create_client_agent(3, []);
 
         var myinstance = {};
         myinstance.foo = "bar";
@@ -22,16 +22,17 @@ setInterval(function () {}, 0);
             return;
         }
 
-        var instance = await agent.find(1, "myinstance");
+        var instance = await agent.find(3, "myinstance");
         console.log("myinstance.foo = " + await instance.getProperty("foo"));
+
         var xxx = await instance.setProperty("aaa", 123321);
         console.log("myinstance.aaa = ", await instance.getProperty("aaa"));
         instance.invoke("func", "hohohho");
-        var one = function() {
+        var one = function () {
 
             console.log("one event has been fired.");
         }
-        var two = function() {
+        var two = function () {
 
             console.log("one event has been fired.");
         }
