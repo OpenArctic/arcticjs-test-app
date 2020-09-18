@@ -1,4 +1,4 @@
-var arctic = require('@openarctic/arcticjs');
+var arctic = require('arcticjs');
 
 // test
 
@@ -8,14 +8,14 @@ setInterval(function () { }, 0);
     try {
         var agent = arctic.create_client_agent(3, []);
 
-        var myinstance = {};
+        global.myinstance = myinstance = {};
         myinstance.foo = "bar";
         myinstance.func = function (addon_value) {
 
             console.log("func has been called.(" + addon_value + ")");
         }
 
-        agent.export("myinstance", myinstance);
+        agent.export("myinstance", global.myinstance);
         var res = agent.start();
         console.log("res = " + res);
         if (res != 0) {
